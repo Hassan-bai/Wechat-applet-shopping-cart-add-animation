@@ -1,0 +1,29 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- 轮播图 -->
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{imgUrls}}"wx:key="keys">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <!--商品图片列表区域 -->
+  <scroll-view>
+    <view catchtap="touchOnGoods" wx:key="keys" class="goods" hover-class="goods_hover" data-idx="{{index}}" wx:for="{{imgUrls}}" style="position:relative">
+      <image src="{{item}}" ></image>
+    </view>
+  </scroll-view>
+  <!-- 购物车图标 和 角标数字-->
+  <!-- <view class="{{needAni ? 'bus scale': 'bus'}}"> -->
+  <view class="bus">
+    <image src="../../images/shopCart.png"></image>
+    <view class="count" hidden="{{hideCount}}">{{count}}</view>
+  </view>
+  <!-- 加购物车时飞的图片 -->
+  <view class="good_box" hidden="{{hide_good_box}}"  style="left: {{bus_x}}px; top: {{bus_y}}px;">
+    <image src="{{feiBox}}"></image>
+  </view>
+  
+</view>
